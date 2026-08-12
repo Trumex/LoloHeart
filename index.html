@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Lolo ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #3b1020, #12070c 55%, #050204);
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.subtitle {
+    opacity: 0.8;
+    font-size: 16px;
+}
+
+.heart {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    transform: rotate(-45deg);
+    background: #ff3b6b;
+    margin: 45px;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(255, 59, 107, 0.7);
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background: #ff3b6b;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.12);
+    }
+}
+
+.message {
+    font-size: 23px;
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+.date {
+    font-size: 18px;
+    letter-spacing: 5px;
+    opacity: 0.75;
+    margin: 20px;
+}
+
+button {
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    backdrop-filter: blur(10px);
+}
+
+button:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+#musicButton {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+}
+
+/* INSTAGRAM BUTTON */
+
+#instagramButton {
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    z-index: 10;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    color: white;
+
+    padding: 10px 16px;
+    border-radius: 25px;
+
+    font-size: 13px;
+    text-decoration: none;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
+}
+
+#instagramButton:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-2px);
+}
+
+.memory-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.memory {
+    max-width: 600px;
+    margin: 70px auto;
+}
+
+.memory img {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+}
+
+.memory p {
+    margin: 18px auto;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.final {
+    min-height: 80vh;
+}
+
+.final-heart {
+    font-size: 60px;
+    animation: heartbeatEmoji 1.5s infinite;
+}
+
+@keyframes heartbeatEmoji {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.fade {
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC BUTTON -->
+
+<button id="musicButton" onclick="toggleMusic()">
+    🎵 Music
+</button>
+
+
+<!-- INSTAGRAM BUTTON -->
+
+<a
+    id="instagramButton"
+    href="https://www.instagram.com/moments_withyou26/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Our Instagram ❤️
+</a>
+
+
+<!-- OPENING -->
+
+<section id="opening" class="screen">
+
+    <div class="subtitle">
+        A little thing for
+    </div>
+
+    <h1>
+        Lolo ❤️
+    </h1>
+
+    <p>
+        There is something inside this little heart for you.
+    </p>
+
+    <div class="heart" onclick="openHeart()"></div>
+
+    <div class="subtitle">
+        Tap the heart
+    </div>
+
+</section>
+
+
+<!-- MAIN MESSAGE -->
+
+<section id="main" class="screen hidden fade">
+
+    <div class="subtitle">
+        You found it.
+    </div>
+
+    <h1>
+        For Batoul ❤️
+    </h1>
+
+    <div class="date">
+        02 • 07 • 2026
+    </div>
+
+    <p class="message">
+        I love you.
+        <br><br>
+        And I'm ready to fight the whole world
+        just to have you by my side.
+    </p>
+
+    <p>
+        Whatever happens, whatever comes next,
+        I want you to know that choosing you
+        will always be one of my favorite choices.
+    </p>
+
+    <button onclick="showMemories()">
+        Our memories ❤️
+    </button>
+
+</section>
+
+
+<!-- MEMORIES -->
+
+<section id="memories" class="memory-section hidden">
+
+    <h2>
+        Our little world ❤️
+    </h2>
+
+    <p>
+        Every picture is a little piece of our story.
+    </p>
+
+    <div id="memoryContainer"></div>
+
+
+    <!-- FINAL -->
+
+    <div class="final screen">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <h2>
+            I love you, Lolo.
+        </h2>
+
+        <p>
+            If you ever forget how much I love you,
+            just tap the heart again.
+        </p>
+
+        <p class="subtitle">
+            Always yours.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const music = document.getElementById("music");
+
+
+function openHeart() {
+
+    document.getElementById("opening").classList.add("hidden");
+
+    document.getElementById("main").classList.remove("hidden");
+
+    music.play().catch(() => {});
+
+}
+
+
+function showMemories() {
+
+    document.getElementById("memories").classList.remove("hidden");
+
+    document.getElementById("memories").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function toggleMusic() {
+
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+
+}
+
+
+/*
+    AUTOMATIC MEMORY SYSTEM
+
+    Just put photos inside the "photos" folder.
+
+    Name them:
+
+    memory1.jpg
+    memory2.jpg
+    memory3.jpg
+    memory4.jpg
+    memory5.jpg
+    etc.
+
+    The website automatically finds them.
+*/
+
+
+const memoryContainer =
+    document.getElementById("memoryContainer");
+
+
+for (let i = 1; i <= 50; i++) {
+
+    const memory = document.createElement("div");
+
+    memory.className = "memory";
+
+    const image = document.createElement("img");
+
+    image.src = `photos/memory${i}.jpg`;
+
+    image.alt = "Our memory";
+
+    const caption = document.createElement("p");
+
+    caption.textContent =
+        "Another little piece of our story. ❤️";
+
+
+    /*
+        If the photo doesn't exist,
+        hide the entire memory.
+    */
+
+    image.onerror = function() {
+
+        memory.remove();
+
+    };
+
+
+    memory.appendChild(image);
+
+    memory.appendChild(caption);
+
+    memoryContainer.appendChild(memory);
+
+}
+
+</script>
+
+</body>
+</html>
